@@ -3,10 +3,10 @@ import arrow from "../assets/arrow.png";
 export default function Experience({ user, setUser }) {
   const experiences = user.experience;
 
-  const [formVisible, setFormVisible] = useState(false);
+  const [formVisible, setFormVisibility] = useState(false);
 
   const toggleFormVisibility = () => {
-    setFormVisible(!formVisible);
+    setFormVisibility(!formVisible);
   };
   return (
     <>

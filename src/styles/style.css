@@ -23,10 +23,11 @@ body {
 }
 .form {
   padding: 10px;
+  flex: 0.7;
 }
 input {
   display: block;
-  width: 30vw;
+  width: 100%;
 }
 .cv {
   width: 21cm;
@@ -132,7 +133,8 @@ textarea {
   border: 1px solid black;
 }
 
-#ExpArr {
+#ExpArr,
+#EduArr {
   transition: 0.3s ease-in-out;
 }
 
@@ -141,4 +143,14 @@ textarea {
 }
 .rotateY {
   transform: rotateY(-180deg);
+}
+
+.headImg {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  margin: 5px 0 5px 0;
+  height: 50px;
 }
