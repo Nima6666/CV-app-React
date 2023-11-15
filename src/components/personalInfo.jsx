@@ -59,7 +59,7 @@ export default function PersonaInfo({ user, setUser }) {
               type="tel"
               id="contact"
               value={personalInfo.contact}
-              maxLength={15}
+              maxLength={20}
               onChange={(e) => {
                 const updatedPerInf = { ...user };
                 updatedPerInf.personalInfo.contact = e.target.value;
@@ -89,6 +89,7 @@ export default function PersonaInfo({ user, setUser }) {
             type="text"
             id="description"
             value={personalInfo.description}
+            maxLength="400"
             onChange={(e) => {
               const updatedPerInf = { ...user };
               updatedPerInf.personalInfo.description = e.target.value;

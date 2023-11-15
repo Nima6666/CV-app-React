@@ -10,14 +10,13 @@ export default function Experience({ user, setUser }) {
   };
   return (
     <>
-      <div className="headImg">
+      <div className="headImg" onClick={toggleFormVisibility}>
         <h3>Experience</h3>
         <img
           src={arrow}
           id="ExpArr"
           className={formVisible ? "rotateX" : "rotateY"}
           height="20px"
-          onClick={toggleFormVisibility}
         />
       </div>
       <div className={`form-container ${formVisible ? "visible" : ""}`}>

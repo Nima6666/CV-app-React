@@ -7,19 +7,17 @@ export default function Education({ user, setUser }) {
 
   const toggleFormVisibility = () => {
     setFormVisibility(!formVisible);
-    console.log(formVisible);
   };
 
   return (
     <>
-      <div className="headImg">
+      <div className="headImg" onClick={toggleFormVisibility}>
         <h3>Education</h3>
         <img
           src={arrow}
           id="EduArr"
           className={formVisible ? "rotateX" : "rotateY"}
           height="20px"
-          onClick={toggleFormVisibility}
         />
       </div>
       <div className={`form-container ${formVisible ? "visible" : ""}`}>
