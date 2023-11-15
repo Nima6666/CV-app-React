@@ -9,6 +9,20 @@ export default function Education({ user, setUser }) {
     setFormVisibility(!formVisible);
   };
 
+  const removeEdu = (e, index) => {
+    e.preventDefault();
+  };
+
+  const hilight = (index) => {
+    const selector = `education${index}`;
+    document.querySelector(`.${selector}`).classList.add("hilight");
+  };
+
+  const unHilight = (index) => {
+    const selector = `education${index}`;
+    document.querySelector(`.${selector}`).classList.remove("hilight");
+  };
+
   return (
     <>
       <div className="headImg" onClick={toggleFormVisibility}>
@@ -24,7 +38,7 @@ export default function Education({ user, setUser }) {
         <form id="education">
           {educations.map((education, index) => {
             return (
-              <div className={education.level} key={index}>
+              <div className={"education" + index} key={index}>
                 <label htmlFor={"eduLevel" + index}>
                   Level
                   <input
@@ -34,6 +48,20 @@ export default function Education({ user, setUser }) {
                     onChange={(e) => {
                       const updatedEducations = { ...user };
                       updatedEducations.education[index].level = e.target.value;
+                      setUser(updatedEducations);
+                    }}
+                  />
+                </label>
+                <label htmlFor={"college" + index}>
+                  Start Year
+                  <input
+                    type="text"
+                    id={"college" + index}
+                    value={education.college}
+                    onChange={(e) => {
+                      const updatedEducations = { ...user };
+                      updatedEducations.education[index].college =
+                        e.target.value;
                       setUser(updatedEducations);
                     }}
                   />
@@ -64,9 +92,20 @@ export default function Education({ user, setUser }) {
                     }}
                   />
                 </label>
+                <div className="remove">
+                  <button
+                    id="remEdu"
+                    onClick={(e) => removeEdu(e, index)}
+                    onMouseEnter={() => hilight(index)}
+                    onMouseLeave={() => unHilight(index)}
+                  >
+                    remove
+                  </button>
+                </div>
               </div>
             );
           })}
+          <button id="addEdu">Add</button>
         </form>
       </div>
     </>

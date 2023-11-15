@@ -8,6 +8,12 @@ export default function Experience({ user, setUser }) {
   const toggleFormVisibility = () => {
     setFormVisibility(!formVisible);
   };
+
+  const removeExp = (e, index) => {
+    e.preventDefault();
+    console.log(index);
+  };
+
   return (
     <>
       <div className="headImg" onClick={toggleFormVisibility}>
@@ -24,7 +30,7 @@ export default function Experience({ user, setUser }) {
           {experiences.map((experience, index) => {
             return (
               <div className={experience.company} key={index}>
-                <label htmlFor={"expCompany" + index}>
+                <label htmlFor={"exp" + index}>
                   Worked in
                   <input
                     type="text"
@@ -37,7 +43,7 @@ export default function Experience({ user, setUser }) {
                       setUser(updatedEducations);
                     }}
                   />
-                  <label htmlFor="position">
+                  <label htmlFor={"position" + index}>
                     as
                     <input
                       type="text"
@@ -79,6 +85,11 @@ export default function Experience({ user, setUser }) {
                     }}
                   />
                 </label>
+                <div className="remove">
+                  <button id="remEdu" onClick={(e) => removeExp(e, index)}>
+                    remove
+                  </button>
+                </div>
               </div>
             );
           })}
