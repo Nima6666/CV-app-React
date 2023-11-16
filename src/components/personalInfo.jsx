@@ -110,6 +110,7 @@ export default function PersonaInfo({ user, setUser }) {
           />
         </label>
         <button
+          type="button"
           id="clearForm"
           onClick={(e) => {
             clearForm(e);

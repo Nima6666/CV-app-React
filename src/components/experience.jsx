@@ -106,6 +106,7 @@ export default function Experience({ user, setUser }) {
                 </label>
                 <div className="remove">
                   <button
+                    type="button"
                     id="remEdu"
                     onClick={(e) => removeExp(e, index)}
                     onMouseEnter={() => hilight(index)}
@@ -118,7 +119,7 @@ export default function Experience({ user, setUser }) {
             );
           })}
           <div className="add">
-            <button id="addExp" onClick={(e) => addExp(e)}>
+            <button id="addExp" type="button" onClick={(e) => addExp(e)}>
               Add Experience
             </button>
           </div>

@@ -106,6 +106,7 @@ export default function Education({ user, setUser }) {
                 <div className="remove">
                   <button
                     id="remEdu"
+                    type="button"
                     onClick={(e) => removeEdu(e, index)}
                     onMouseEnter={() => hilight(index)}
                     onMouseLeave={() => unHilight(index)}
@@ -117,7 +118,7 @@ export default function Education({ user, setUser }) {
             );
           })}
           <div className="add">
-            <button id="addEdu" onClick={(e) => addEdu(e)}>
+            <button id="addEdu" type="button" onClick={(e) => addEdu(e)}>
               Add Education
             </button>
           </div>

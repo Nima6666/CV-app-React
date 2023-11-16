@@ -10,7 +10,7 @@ const defaultUser = {
   },
   education: [
     {
-      start: "2019",
+      start: "2019 AD",
       end: "Present",
       college: "Bhaktapur Multiple Campus",
       faculty: "Bachelors in Business Studies",
@@ -18,13 +18,13 @@ const defaultUser = {
   ],
   experience: [
     {
-      start: "2018",
-      end: "2020",
+      start: "2018 AD",
+      end: "2020 AD",
       company: "XYZ company",
       position: "junior soft dev",
     },
     {
-      start: "2020",
+      start: "2020 AD",
       end: "Current",
       company: "Abc company",
       position: "senior web developer",
