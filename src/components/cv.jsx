@@ -1,16 +1,12 @@
-import me from "../assets/me.jpg";
 import address from "../assets/address.png";
 import mail from "../assets/mail.png";
 import phone from "../assets/phone.png";
-function Cv({ user }) {
+function Cv({ user, image }) {
   return (
     <>
       <div className="topSection">
         <div className="namePhoto">
           <h1>{`${user.personalInfo.firstName} ${user.personalInfo.lastName}`}</h1>
-          <div className="imageContainer">
-            <img src={me} alt="" />
-          </div>
         </div>
         <div className="info">
           <div>

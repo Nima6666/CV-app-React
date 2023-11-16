@@ -11,7 +11,26 @@ export default function Experience({ user, setUser }) {
 
   const removeExp = (e, index) => {
     e.preventDefault();
-    console.log(index);
+    const afterDeletion = { ...user };
+    afterDeletion.experience.splice(index, 1);
+    setUser(afterDeletion);
+  };
+
+  const hilight = (index) => {
+    const selector = `experience${index}`;
+    document.querySelector(`.${selector}`).classList.add("hilight");
+  };
+
+  const unHilight = (index) => {
+    const selector = `experience${index}`;
+    document.querySelector(`.${selector}`).classList.remove("hilight");
+  };
+
+  const addExp = (e) => {
+    e.preventDefault();
+    const afterAdding = { ...user };
+    afterAdding.experience.push({});
+    setUser(afterAdding);
   };
 
   return (
@@ -29,7 +48,7 @@ export default function Experience({ user, setUser }) {
         <form id="experience">
           {experiences.map((experience, index) => {
             return (
-              <div className={experience.company} key={index}>
+              <div className={"experience" + index} key={index}>
                 <label htmlFor={"exp" + index}>
                   Worked in
                   <input
@@ -86,13 +105,23 @@ export default function Experience({ user, setUser }) {
                   />
                 </label>
                 <div className="remove">
-                  <button id="remEdu" onClick={(e) => removeExp(e, index)}>
-                    remove
+                  <button
+                    id="remEdu"
+                    onClick={(e) => removeExp(e, index)}
+                    onMouseEnter={() => hilight(index)}
+                    onMouseLeave={() => unHilight(index)}
+                  >
+                    Remove
                   </button>
                 </div>
               </div>
             );
           })}
+          <div className="add">
+            <button id="addExp" onClick={(e) => addExp(e)}>
+              Add Experience
+            </button>
+          </div>
         </form>
       </div>
     </>

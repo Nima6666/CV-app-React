@@ -10,14 +10,6 @@ const defaultUser = {
   },
   education: [
     {
-      level: "+2",
-      start: "2017",
-      end: "2018",
-      college: "Moders HSS",
-      faculty: "Business Studies",
-    },
-    {
-      level: "Bachelor",
       start: "2019",
       end: "Present",
       college: "Bhaktapur Multiple Campus",

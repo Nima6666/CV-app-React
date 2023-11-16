@@ -1,8 +1,20 @@
 export default function PersonaInfo({ user, setUser }) {
   const personalInfo = user.personalInfo;
 
-  function handlePhotoUpload(e) {
-    console.log(e.target.value);
+  function clearForm(e) {
+    e.preventDefault();
+    setUser({
+      personalInfo: {
+        firstName: "",
+        lastName: "",
+        address: "",
+        contact: "",
+        email: "",
+        description: "",
+      },
+      education: [],
+      experience: [],
+    });
   }
 
   return (
@@ -97,16 +109,14 @@ export default function PersonaInfo({ user, setUser }) {
             }}
           />
         </label>
-        <label htmlFor="photo">
-          Choose a photo:
-          <input
-            type="file"
-            id="photo"
-            name="photo"
-            accept="image/*"
-            onChange={(e) => handlePhotoUpload(e)}
-          />
-        </label>
+        <button
+          id="clearForm"
+          onClick={(e) => {
+            clearForm(e);
+          }}
+        >
+          Clear Form
+        </button>
       </form>
     </>
   );

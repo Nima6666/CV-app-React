@@ -11,6 +11,9 @@ export default function Education({ user, setUser }) {
 
   const removeEdu = (e, index) => {
     e.preventDefault();
+    const afterDeletion = { ...user };
+    afterDeletion.education.splice(index, 1);
+    setUser(afterDeletion);
   };
 
   const hilight = (index) => {
@@ -21,6 +24,13 @@ export default function Education({ user, setUser }) {
   const unHilight = (index) => {
     const selector = `education${index}`;
     document.querySelector(`.${selector}`).classList.remove("hilight");
+  };
+
+  const addEdu = (e) => {
+    e.preventDefault();
+    const afterAdding = { ...user };
+    afterAdding.education.push({});
+    setUser(afterAdding);
   };
 
   return (
@@ -39,21 +49,22 @@ export default function Education({ user, setUser }) {
           {educations.map((education, index) => {
             return (
               <div className={"education" + index} key={index}>
-                <label htmlFor={"eduLevel" + index}>
-                  Level
+                <label htmlFor={"eduMajor" + index}>
+                  Major
                   <input
                     type="text"
-                    value={education.level}
-                    id={"eduLevel" + index}
+                    value={education.faculty}
+                    id={"eduMajor" + index}
                     onChange={(e) => {
                       const updatedEducations = { ...user };
-                      updatedEducations.education[index].level = e.target.value;
+                      updatedEducations.education[index].faculty =
+                        e.target.value;
                       setUser(updatedEducations);
                     }}
                   />
                 </label>
                 <label htmlFor={"college" + index}>
-                  Start Year
+                  College
                   <input
                     type="text"
                     id={"college" + index}
@@ -99,13 +110,17 @@ export default function Education({ user, setUser }) {
                     onMouseEnter={() => hilight(index)}
                     onMouseLeave={() => unHilight(index)}
                   >
-                    remove
+                    Remove
                   </button>
                 </div>
               </div>
             );
           })}
-          <button id="addEdu">Add</button>
+          <div className="add">
+            <button id="addEdu" onClick={(e) => addEdu(e)}>
+              Add Education
+            </button>
+          </div>
         </form>
       </div>
     </>

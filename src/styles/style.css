@@ -33,6 +33,7 @@ body {
 .form {
   padding: 10px;
   flex: 0.5;
+  position: relative;
 }
 input {
   display: block;
@@ -47,7 +48,7 @@ input {
   margin: 10px;
   box-shadow: -3px 3px rgba(0, 0, 0, 0.3);
   position: sticky;
-  top: 100px;
+  top: 25px;
 }
 
 .imageContainer {
@@ -181,7 +182,7 @@ textarea {
   resize: none;
   display: block;
   width: 100%;
-  height: 15rem;
+  height: 20rem;
 }
 input:focus,
 textarea:focus {
@@ -197,7 +198,8 @@ label {
   font-size: 2rem;
 }
 
-.remove {
+.remove,
+.add {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -213,20 +215,61 @@ label {
   border: none;
   background-color: rgba(182, 96, 96, 0.8);
   color: white;
-  box-shadow: -5px 5px brown;
+  box-shadow: -5px 5px rgba(0, 0, 0, 0.3);
   justify-self: center;
   transition: 0.3s ease all;
 }
 
 #remExp:hover,
-#remEdu:hover {
-  box-shadow: -3px 3px brown;
+#remEdu:hover,
+#addEdu:hover,
+#addExp:hover,
+#clearForm:hover {
+  box-shadow: -3px 3px rgba(0, 0, 0, 0.3);
 }
 #remExp:active,
-#remEdu:active {
+#remEdu:active,
+#addEdu:active,
+#addExp:active,
+#clearForm:active {
   box-shadow: none;
+}
+
+#education > div,
+#experience > div {
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .hilight {
   background-color: rgba(238, 140, 140, 0.5);
+}
+
+#addEdu,
+#addExp {
+  width: 80%;
+  height: 3rem;
+  border: 2px solid gray;
+  font-size: 1.5rem;
+  background-color: rgb(99, 134, 47);
+  color: white;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: -5px 5px rgba(0, 0, 0, 0.4);
+  transition: 0.3s ease all;
+}
+
+#clearForm {
+  position: absolute;
+  top: 30px;
+  right: 20px;
+  width: 30%;
+  height: 3rem;
+  border-radius: 10px;
+  transition: 0.3s ease all;
+  border: 1px solid red;
+  background-color: rgb(172, 125, 125);
+  color: white;
+  font-size: 1.3rem;
+  box-shadow: -5px 5px rgba(0, 0, 0, 0.3);
 }
